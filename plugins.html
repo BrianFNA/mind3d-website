@@ -1,0 +1,176 @@
+<!doctype html>
+<html lang="de">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Plugins – mind3D</title>
+  <meta name="description" content="Die mitgelieferten Plugins von mind3D: 3D-Ansicht, Farbschema, Projekte, Markdown-Import und Sicherheits-Center.">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; img-src 'self' data:; style-src 'self'; script-src 'self'; object-src 'none'; base-uri 'none'; form-action 'none'">
+  <meta name="referrer" content="no-referrer">
+  <meta name="theme-color" content="#000011">
+  <meta property="og:title" content="Plugins – mind3D">
+  <meta property="og:description" content="Die mitgelieferten Plugins von mind3D: 3D-Ansicht, Farbschema, Projekte, Markdown-Import und Sicherheits-Center.">
+  <meta property="og:image" content="img/mindmap.webp">
+  <link rel="icon" href="img/logo.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="css/site.css">
+</head>
+<body>
+<canvas id="sterne" aria-hidden="true"></canvas>
+<div class="seite">
+<header class="kopf">
+  <div class="wrap">
+    <a class="marke" href="index.html"><img src="img/logo.svg" alt="" width="34" height="34">mind3D</a>
+    <button class="menue-knopf" type="button" aria-expanded="false" aria-controls="nav" aria-label="Menü">☰</button>
+    <nav class="nav" id="nav" aria-label="Hauptmenü">
+      <a href="index.html">Start</a><a href="funktionen.html">Funktionen</a><a href="plugins.html" aria-current="page">Plugins</a><a href="sicherheit.html">Sicherheit</a><a class="knopf" href="download.html">Download</a>
+    </nav>
+  </div>
+</header>
+<main>
+<section class="eng">
+  <div class="wrap">
+    <span class="etikett">Plugins</span>
+    <h1>Mitgelieferte Plugins</h1>
+    <p class="einleitung">Plugins erweitern mind3D um neue Ansichten, Farben und Werkzeuge. Fünf sind schon dabei. Du schaltest sie im Startbildschirm unter 🧩 ein und aus, ohne Neustart.</p>
+    <div class="hinweis abstand-16"><strong>Deine Mindmaps hängen nie von einem Plugin ab.</strong> Schaltest du ein Plugin aus, bleibt jede Mindmap vollständig lesbar. Was ein Plugin zusätzlich speichert, wartet einfach, bis du es wieder einschaltest.</div>
+  </div>
+</section>
+
+<section class="eng" id="ansicht3d">
+  <div class="wrap paar">
+    <div>
+      <span class="etikett">🌐 3D-Ansicht</span>
+      <h2>Die ganze Mindmap als Raum</h2>
+      <p class="leise">In der Mindmap erscheint oben der Knopf <strong>3D</strong>. Er zeigt alle Ebenen gleichzeitig als Raum aus Kugeln und Fäden. Bereiche mit vielen Unterknoten sind größer, die Farben kommen aus deiner Mindmap.</p>
+      <ul class="haken">
+        <li>Drehen, zoomen und verschieben mit Finger oder Maus</li>
+        <li>Suchen: Die Ansicht fliegt zum gefundenen Knoten</li>
+        <li>Knoten antippen und „In 2D öffnen“ springt genau dorthin</li>
+        <li>Zwei Anordnungen: <em>Frei</em> (Gruppen nach Hauptästen) oder <em>Ebenen</em> (Tiefe = Abstand zur Mitte)</li>
+        <li>Filter „Nur Mindmap-Knoten“ für den groben Überblick</li>
+        <li>Zurück-Taste oder Esc schließt die 3D-Ansicht</li>
+      </ul>
+      <p class="leise klein">Einstellungen: Anordnung beim Öffnen, FPS-Anzeige</p>
+    </div>
+    <img src="img/3d-ansicht.webp" alt="3D-Ansicht einer Mindmap" width="1184" height="761" loading="lazy">
+  </div>
+</section>
+
+<section class="eng" id="farbschema">
+  <div class="wrap paar umgekehrt">
+    <div>
+      <span class="etikett">🎨 Farbschema</span>
+      <h2>mind3D in deiner Farbe</h2>
+      <p class="leise">Ändert die Akzentfarbe der ganzen App: Knöpfe, Logo, Knoten und Verbindungen. Das Bild zeigt dieselbe Mindmap in Violett.</p>
+      <ul class="haken">
+        <li>Zehn fertige Farben: Cyan, Blau, Violett, Magenta, Rot, Orange, Gold, Grün, Türkis, Weiß</li>
+        <li>Eigene Farbe über einen Hex-Wert, z. B. #ff7a59</li>
+        <li>Farbverlauf aus zwei Farben, auch im Logo</li>
+        <li>Die Farbe wechselt sofort, ohne Neustart</li>
+      </ul>
+    </div>
+    <img src="img/farbschema.webp" alt="Die Mindmap mit violettem Farbschema" width="1280" height="800" loading="lazy">
+  </div>
+</section>
+
+<section class="eng" id="projekte">
+  <div class="wrap">
+    <span class="etikett">📁 Projekte</span>
+    <h2>Aus Mindmaps werden Projekte</h2>
+    <div class="paar">
+      <div>
+        <p class="leise">Für alle, die mit mind3D planen. Das Plugin fügt der Projektliste einen Tab <strong>Projekte</strong> hinzu. Jede Mindmap kannst du dort zum Projekt machen.</p>
+        <ul class="haken">
+          <li><strong>Übersicht:</strong> offene und erledigte Aufgaben auf einen Blick</li>
+          <li><strong>Projektstrukturplan:</strong> Unterprojekte und Arbeitspakete aus deiner Mindmap</li>
+          <li><strong>To-Do-Liste</strong> mit „Als nächstes“ und einem Bereich für Erledigtes</li>
+          <li>Projekt-Mindmaps sind in der Liste markiert</li>
+        </ul>
+      </div>
+      <div class="karte knoten">
+        <div class="kopfleiste"><span class="nummer">#001</span><h3>Gartenplanung</h3></div>
+        <div class="inhalt">
+          <p class="leise klein">So sieht ein Projekt als Mindmap aus. Auch ohne Plugin bleibt alles verständlich:</p>
+          <ul class="leise klein">
+            <li>Hochbeete (Unterprojekt)</li>
+            <li>Bewässerung (Arbeitspaket)</li>
+            <li>📋 To-Do: offene Aufgaben</li>
+            <li>✅ Fertig: erledigte Aufgaben</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="eng" id="markdown">
+  <div class="wrap">
+    <span class="etikett">📝 Markdown-Import</span>
+    <h2>Notizen und Obsidian-Vaults übernehmen</h2>
+    <p class="leise">Im Dialog „Neues Projekt“ kommen neue Import-Wege dazu. Aus vorhandenen Notizen wird so eine Mindmap.</p>
+    <div class="raster abstand-16">
+      <div class="karte"><h3>Eine Notiz (.md)</h3><p class="leise">Überschriften werden zu Ebenen, Absätze und Listenpunkte zu Knoten, Aufgaben (☐/☑) bleiben als Aufgabenliste erhalten. Eine Notiz ohne Überschriften wird ein einzelner Text-Knoten.</p></div>
+      <div class="karte"><h3>Ganzer Vault</h3><p class="leise">Als .zip, am PC auch direkt als Ordner. Ordner werden Ebenen, Notizen Knoten, <code>[[Wikilinks]]</code> Verbindungen. Eingebettete Bilder kommen mit.</p></div>
+      <div class="karte"><h3>Farben nach Tags</h3><p class="leise">Notizen können nach ihrem ersten Tag eingefärbt werden. Eigene Farben pro Tag lassen sich festlegen.</p></div>
+    </div>
+    <p class="leise klein abstand-16">Der Import ändert deine Originaldateien nicht. Ein erneuter Import legt ein neues Projekt an, z. B. „Mein Vault (1)“.</p>
+  </div>
+</section>
+
+<section class="eng" id="sicherheit">
+  <div class="wrap paar">
+    <img class="hoch" src="img/sicherheit.webp" alt="Das Sicherheits-Center" width="585" height="1266" loading="lazy">
+    <div>
+      <span class="etikett">🛡 Sicherheits-Center</span>
+      <h2>Alle Schutzfunktionen an einem Ort</h2>
+      <p class="leise">Ist von Anfang an eingeschaltet und erscheint als 🛡 im Startbildschirm. Ohne dein Zutun ändert sich nichts.</p>
+      <ul class="haken">
+        <li>Alles verschlüsseln oder einen Tresor mit eigenem Passwort einrichten</li>
+        <li>24 Wiederherstellungswörter als Ersatzschlüssel</li>
+        <li>Passwort ändern, automatisches Sperren einstellen</li>
+        <li>App-Sperre per Fingerabdruck und Bildschirmschutz</li>
+      </ul>
+      <p class="leise klein">Die Verschlüsselung selbst steckt im Kern der App. Schaltest du das Plugin aus, bleibt alles verschlüsselt und lesbar; nur die Schalter verschwinden.</p>
+      <a href="sicherheit.html">Ausführlich auf der Seite Sicherheit →</a>
+    </div>
+  </div>
+</section>
+
+<section class="eng">
+  <div class="wrap">
+    <h2>Eigene Plugins</h2>
+    <div class="raster zwei abstand-16">
+      <div class="karte">
+        <h3><span class="symbol">🧩</span>Installieren</h3>
+        <p class="leise">Startbildschirm → 🧩 → „Plugin aus Datei installieren“ und die <code>.js</code>-Datei wählen. Dieselbe Datei erneut installieren aktualisiert das Plugin.</p>
+        <p class="leise klein"><strong>Wichtig:</strong> Ein installiertes Plugin kann deine Mindmaps lesen und ändern. Installiere nur Plugins, deren Herkunft du vertraust.</p>
+      </div>
+      <div class="karte">
+        <h3><span class="symbol">🛠</span>Selbst entwickeln</h3>
+        <p class="leise">Plugins sind einzelne JavaScript-Dateien. Sie können Farben und Hintergrund ändern, Knotentypen und Knöpfe ergänzen, eigene Tabs und Import-Formate anlegen sowie Mindmaps lesen und schreiben, immer über die normale Speicherlogik der App.</p>
+        <p class="leise klein">Ins Internet kommen Plugins nicht: Die App blockiert jede Verbindung nach außen.</p>
+        <a class="knopf zweit" href="plugin-entwicklung.html">Anleitung und API</a>
+      </div>
+    </div>
+  </div>
+</section>
+</main>
+<footer class="fuss">
+  <div class="wrap">
+    <a class="marke" href="index.html"><img src="img/logo.svg" alt="" width="28" height="28">mind3D</a>
+    <nav aria-label="Fußzeile">
+      <a href="funktionen.html">Funktionen</a>
+      <a href="plugins.html">Plugins</a>
+      <a href="sicherheit.html">Sicherheit</a>
+      <a href="plugin-entwicklung.html">Plugins entwickeln</a>
+      <a href="download.html">Download</a>
+      
+    </nav>
+    <span class="rechts">Version 1.1.0 · 100 % kostenlos · offline · ohne Tracker</span>
+  </div>
+</footer>
+</div>
+<script src="js/sterne.js"></script>
+<script src="js/site.js"></script>
+</body>
+</html>

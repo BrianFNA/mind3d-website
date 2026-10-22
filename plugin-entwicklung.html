@@ -1,0 +1,174 @@
+<!doctype html>
+<html lang="de">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Plugins entwickeln – mind3D</title>
+  <meta name="description" content="Anleitung und API-Referenz für eigene mind3D-Plugins.">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; img-src 'self' data:; style-src 'self'; script-src 'self'; object-src 'none'; base-uri 'none'; form-action 'none'">
+  <meta name="referrer" content="no-referrer">
+  <meta name="theme-color" content="#000011">
+  <meta property="og:title" content="Plugins entwickeln – mind3D">
+  <meta property="og:description" content="Anleitung und API-Referenz für eigene mind3D-Plugins.">
+  <meta property="og:image" content="img/mindmap.webp">
+  <link rel="icon" href="img/logo.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="css/site.css">
+</head>
+<body>
+<canvas id="sterne" aria-hidden="true"></canvas>
+<div class="seite">
+<header class="kopf">
+  <div class="wrap">
+    <a class="marke" href="index.html"><img src="img/logo.svg" alt="" width="34" height="34">mind3D</a>
+    <button class="menue-knopf" type="button" aria-expanded="false" aria-controls="nav" aria-label="Menü">☰</button>
+    <nav class="nav" id="nav" aria-label="Hauptmenü">
+      <a href="index.html">Start</a><a href="funktionen.html">Funktionen</a><a href="plugins.html">Plugins</a><a href="sicherheit.html">Sicherheit</a><a class="knopf" href="download.html">Download</a>
+    </nav>
+  </div>
+</header>
+<main>
+<section class="eng"><div class="wrap text-seite doku">
+<span class="etikett">Für Entwickler</span>
+<h1>Plugins entwickeln</h1>
+<p>Ein Plugin ist <strong>eine einzelne <code>.js</code>-Datei</strong>. Sie verändert Aussehen oder Funktionen von mind3D, ohne den Kern der App anzufassen. Plugins lassen sich in der App über den <strong>🧩-Button im Startbildschirm</strong> ein- und ausschalten – <strong>ohne Neustart</strong>. Alles, was ein Plugin über die API registriert, wird beim Ausschalten automatisch wieder entfernt.</p>
+<p>Gilt für beide Versionen (Android und USB/Desktop) – der Plugin-Code ist identisch.</p>
+<p>Vorlage zum Kopieren: <a href="downloads/plugin-vorlage.js"><code>plugin-vorlage.js</code></a> (zum Herunterladen) Ausführliche Beispiele in den App-Assets: <code>plugins/farbschema.js</code> (Design), <code>plugins/projekte.js</code> (eigene Ansichten, Daten im Plugin-Bereich der Mindmap), <code>plugins/ansicht3d.js</code> (Vollbild-Ansicht mit nachgeladener Bibliothek) und <code>plugins/markdown-import.js</code> (Import-Format)</p>
+<h2 id="grundgerüst">Grundgerüst</h2>
+<pre><code>mind3D.plugins.register({
+  id: "mein-plugin",          // eindeutig, nur a-z 0-9 . _ -
+  name: "Mein Plugin",
+  version: "1.0.0",
+  author: "Name",
+  icon: "✨",                  // Emoji in der Plugin-Liste
+  description: "Was das Plugin macht.",
+  apiVersion: 1,              // API-Version, für die das Plugin geschrieben ist
+
+  settings: [ /* optional, siehe unten */ ],
+
+  activate(api) {
+    // Hier alles registrieren. Läuft beim Einschalten und bei jedem Seitenstart.
+  },
+
+  deactivate(api) {
+    // Optional. Registrierungen über die API werden automatisch entfernt.
+  },
+});</code></pre>
+<p><code>activate</code> läuft auf <strong>beiden Seiten</strong> der App. <code>api.page</code> sagt, wo:</p>
+<div class="tabelle-huelle"><table><tr><th><code>api.page</code></th><th>Seite</th></tr><tr><td><code>"menu"</code></td><td>Startbildschirm / Projektliste</td></tr><tr><td><code>"map"</code></td><td>geöffnete Mindmap</td></tr></table></div>
+<p>Funktionen, die auf einer Seite keinen Sinn haben (z. B. Toolbar-Button im Menü), tun dort einfach nichts.</p>
+<h2 id="api-übersicht">API-Übersicht</h2>
+<p>Alle Funktionen, die etwas registrieren, geben eine Funktion zurück, mit der man die Registrierung vorzeitig wieder entfernen kann. Normalerweise braucht man das nicht.</p>
+<h3 id="aussehen">Aussehen</h3>
+<div class="tabelle-huelle"><table><tr><th>Aufruf</th><th>Wirkung</th></tr><tr><td><code>api.theme.set({ accent, accent2, colors, css, nodeTypes, palette })</code></td><td>Farben ändern, erneut aufrufen = ersetzen. Details unten.</td></tr><tr><td><code>api.theme.clear()</code></td><td>eigene Farben entfernen</td></tr><tr><td><code>api.ui.addStyle(css)</code></td><td>eigenes CSS einfügen (z. B. Buttons, Dialoge)</td></tr><tr><td><code>api.background.replace(factory)</code></td><td>Hintergrund austauschen (siehe unten)</td></tr></table></div>
+<h3 id="theme-im-detail">Theme im Detail</h3>
+<pre><code>api.theme.set({
+  accent:  "#a07cff",   // färbt das GESAMTE Design: Buttons, Logo, Rahmen, Knoten, Verbindungen
+  accent2: "#ff4fd8",   // optional: Farbverlauf accent → accent2 (null = einfarbig)
+  colors:  { text: "#ffffff" },              // einzelne Canvas-Farben aus COLORS
+  css:     { "--accent-border": "#333" },     // einzelne CSS-Variablen
+  nodeTypes: { text: { card: "#101010", hdr: "#181818" } },
+  palette: ["#ff0000", "#00ff00"],          // Farbauswahl für Rahmen (ersetzt sie)
+  paletteExtra: ["#a07cff"],                // zusätzliche Farben vorne in der Farbauswahl
+});</code></pre>
+<p>Aus <code>accent</code> leitet die App automatisch alle Abstufungen ab (hell, gedämpft, dunkel, getönte Rahmen/Hover-Flächen) und wählt Schwarz oder Weiß als Textfarbe auf Akzent-Buttons. Die CSS-Variablen dafür sind <code>--accent</code>, <code>--accent-rgb</code>, <code>--accent-bright</code>, <code>--accent-deep</code>, <code>--accent-border</code>, <code>--on-accent</code>, <code>--accent-2</code> und <code>--accent-gradient</code> – eigenes Plugin-CSS kann sie ebenfalls verwenden. Die zuletzt gesetzten Werte werden beim nächsten Start sofort angewendet (kein Aufblitzen).</p>
+<h3 id="zeichnen-auf-der-mindmap">Zeichnen auf der Mindmap</h3>
+<pre><code>api.render.before((ctx, info) =&gt; { … });          // vor allem anderen
+api.render.after((ctx, info) =&gt; { … });           // über allem
+api.render.nodeBefore((ctx, node, rect, info) =&gt; { … });  // hinter jedem Knoten
+api.render.nodeAfter((ctx, node, rect, info) =&gt; { … });   // über jedem Knoten
+api.render.redraw();                               // Neuzeichnen anfordern</code></pre>
+<ul><li><code>ctx</code> – Canvas-2D-Kontext in <strong>CSS-Pixeln</strong> (Zustand wird automatisch gesichert/zurückgesetzt)</li><li><code>info</code> – <code>{ cssW, cssH, viewport, nodes, selectedId }</code></li><li><code>rect</code> – Bildschirm-Rechteck des Knotens <code>{ x1, y1, x2, y2, z, selected }</code> (<code>z</code> = Zoom)</li></ul>
+<p>Die Mindmap zeichnet nur neu, wenn sich etwas ändert. Für Animationen regelmäßig <code>api.render.redraw()</code> aufrufen (z. B. mit <code>api.every(33, …)</code>).</p>
+<h3 id="eigener-hintergrund">Eigener Hintergrund</h3>
+<pre><code>api.background.replace((canvas, { viewport, page }) =&gt; {
+  const ctx = canvas.getContext("2d");      // oder "webgl"
+  return {
+    resize(w, h, dpr) { … },   // Pflicht: Größe in CSS-Pixeln + Pixeldichte
+    start() { … },             // Animation starten
+    destroy() { … },           // Animation beenden (oder stop())
+  };
+});</code></pre>
+<p>Der Canvas ist bei jedem Austausch frisch. <code>viewport</code> (<code>zoom</code>, <code>panX</code>, <code>panY</code>) gibt es nur auf der Mindmap-Seite. Beim Ausschalten kommt der Standard-Weltraum zurück.</p>
+<h3 id="eigene-knotentypen">Eigene Knotentypen</h3>
+<pre><code>api.nodes.registerType({
+  type: "checkliste",               // nicht: mindmap, text, image, sound, document
+  label: "Checkliste",              // Name im ➕-Menü und im Editor
+  icon: "☑",
+  colors: { card: "#0a1a10", hdr: "#0d2818" },
+  create(node) { api.data.set(node, { items: [] }); },   // beim Anlegen
+  draw(ctx, node, rect) { … },      // Inhaltsbereich zeichnen (rect wie oben, ohne Kopf)
+  open(node) { return false; },     // Doppelklick; true = selbst erledigt, sonst Editor
+  editor: {
+    render(container, node) { … },  // eigene Felder in den Knoten-Editor einfügen
+    save(container, node) { … },    // beim Speichern Werte übernehmen
+  },
+});</code></pre>
+<p>Der Typ erscheint automatisch im ➕-Menü. Ist das Plugin später aus, bleiben diese Knoten <strong>samt Daten erhalten</strong> und erscheinen als Platzhalter „Plugin nicht aktiv“.</p>
+<h3 id="daten">Daten</h3>
+<div class="tabelle-huelle"><table><tr><th>Aufruf</th><th>Gespeichert</th></tr><tr><td><code>api.data.get(node)</code> / <code>api.data.set(node, obj)</code></td><td><strong>am Knoten</strong>, im Projekt (wandert mit Export/Import). Nach <code>set</code> mit <code>api.map.save()</code> übernehmen.</td></tr><tr><td><code>api.storage.get(key, fallback)</code> / <code>api.storage.set(key, value)</code></td><td>pro Gerät, projektübergreifend</td></tr><tr><td><code>api.settings.get(key)</code> / <code>api.settings.set(key, value)</code></td><td>Einstellungen (siehe unten)</td></tr></table></div>
+<p><strong>Sicherheitsmodus (<code>api.security</code>, nur lesen):</strong> <code>mode()</code> → <code>"standard" | "global" | "tresor"</code>, <code>protectsMindmaps()</code> → <code>true</code> im Modus „Alles verschlüsseln“, <code>isUnlocked()</code>. <code>api.storage</code> und <code>api.settings</code> liegen <strong>unverschlüsselt</strong> in <code>localStorage</code>. Gibt <code>protectsMindmaps()</code> <code>true</code> zurück, dürfen dort keine Inhalte oder Namen von Mindmaps landen. Zwischenspeicher dann nur im Arbeitsspeicher halten (Beispiel: <code>plugins/projekte.js</code>). Mindmaps selbst immer über <code>api.mindmaps</code>/<code>api.map</code> lesen und schreiben: Diese Wege verschlüsseln automatisch. Tresor-Mindmaps sind für Plugins nicht sichtbar.</p>
+<h3 id="die-geöffnete-mindmap-api-map-nur-auf-map-sonst-null">Die geöffnete Mindmap (<code>api.map</code>, nur auf <code>"map"</code>, sonst <code>null</code>)</h3>
+<div class="tabelle-huelle"><table><tr><th>Aufruf</th><th></th></tr><tr><td><code>api.map.nodes()</code></td><td>Knoten der aktuellen Ebene</td></tr><tr><td><code>api.map.allNodes()</code></td><td>alle Knoten des Projekts</td></tr><tr><td><code>api.map.selected()</code> / <code>api.map.select(node)</code></td><td>Auswahl</td></tr><tr><td><code>api.map.addNode(type, text, x?, y?)</code></td><td>Knoten anlegen (ohne Position: Bildschirmmitte)</td></tr><tr><td><code>api.map.save()</code></td><td>Änderung übernehmen: Undo-Schritt + Autosave + Neuzeichnen</td></tr><tr><td><code>api.map.viewport()</code></td><td><code>{ zoom, panX, panY, worldToScreen(), screenToWorld() }</code></td></tr><tr><td><code>api.map.navigateTo(id)</code></td><td>direkt auf die Ebene einer Node springen und sie auswählen (Zoom-Hysterese wird korrekt gesetzt)</td></tr><tr><td><code>api.map.suspend()</code> / <code>resume()</code></td><td>2D-Ansicht pausieren/fortsetzen (für Vollbild-Ansichten wie die 3D-Ansicht)</td></tr><tr><td><code>api.map.state</code> / <code>api.map.app</code></td><td>interner Zugriff – <strong>kein stabiler Vertrag</strong>, nur im Notfall</td></tr></table></div>
+<h3 id="mindmaps-verwalten-api-mindmaps-auf-beiden-seiten">Mindmaps verwalten (<code>api.mindmaps</code>, auf beiden Seiten)</h3>
+<p>Lesen und Schreiben über die normale Speicherlogik der App – im JSON-Format der Mindmaps.</p>
+<div class="tabelle-huelle"><table><tr><th>Aufruf</th><th></th></tr><tr><td><code>await api.mindmaps.list()</code></td><td>Mindmaps des angemeldeten Benutzers (<code>[{ name, last_modified, saves }]</code>)</td></tr><tr><td><code>await api.mindmaps.load(name)</code> / <code>save(name, data)</code></td><td>Mindmap-JSON laden / speichern</td></tr><tr><td><code>await api.mindmaps.create(name)</code></td><td>neue Mindmap, gibt den tatsächlichen (ggf. nummerierten) Namen zurück</td></tr><tr><td><code>api.mindmaps.open(name)</code></td><td>im Editor öffnen (nur Startbildschirm)</td></tr><tr><td><code>api.mindmaps.root(data)</code> / <code>children(data, id)</code></td><td>Knoten finden</td></tr><tr><td><code>api.mindmaps.addNode(data, { text, parent_id, node_type, body_text, plugin_data })</code></td><td>Knoten anlegen (Position automatisch)</td></tr><tr><td><code>api.mindmaps.removeNode(data, id)</code></td><td>Knoten samt Unterknoten und Verbindungen entfernen</td></tr><tr><td><code>api.mindmaps.meta(data)</code> / <code>setMeta(data, obj)</code></td><td><strong>Plugin-Bereich im JSON</strong>: <code>data.plugins[pluginId]</code></td></tr></table></div>
+<p><strong>Grundregel für Daten:</strong> Alles, was auch ohne das Plugin sichtbar sein soll, gehört in normale Knoten (Text, Unterknoten). Plugin-eigene Zusatzinfos gehören in den Plugin-Bereich <code>plugins.&lt;id&gt;</code>. Die App reicht diesen Bereich beim Laden und Speichern <strong>unverändert durch</strong>, auch wenn das Plugin gerade aus ist. So bleibt jede Mindmap ohne Plugin lesbar, und mit Plugin geht nichts verloren.</p>
+<p>In der geöffneten Mindmap: <code>api.map.meta()</code> / <code>api.map.setMeta(obj)</code>, danach <code>api.map.save()</code>.</p>
+<h3 id="ereignisse">Ereignisse</h3>
+<pre><code>api.events.on("map:loaded",    (state) =&gt; …);
+api.events.on("map:changed",   (state) =&gt; …);  // nach jeder Änderung
+api.events.on("map:saved",     (state) =&gt; …);
+api.events.on("node:created",  (node) =&gt; …);
+api.events.on("node:deleted",  (node) =&gt; …);
+api.events.on("node:selected", (nodeOrNull) =&gt; …);
+api.events.on("level:changed", (contextNodeOrNull) =&gt; …);  // Ebene betreten/verlassen
+api.events.on("menu:projectsShown", (username) =&gt; …);      // Projektliste angezeigt</code></pre>
+<h3 id="oberfläche">Oberfläche</h3>
+<div class="tabelle-huelle"><table><tr><th>Aufruf</th><th></th></tr><tr><td><code>api.ui.toast(text, "ok" | "error")</code></td><td>kurzer Hinweis</td></tr><tr><td><code>api.ui.dialog({ title, message, content, buttons })</code></td><td>Dialog → <code>Promise</code> mit dem <code>value</code> des Buttons. <code>buttons: [{ label, value, primary?, danger? }]</code>, <code>content</code>: eigenes DOM-Element</td></tr><tr><td><code>api.ui.confirm(title, message, okLabel)</code></td><td>Ja/Nein → <code>Promise&lt;boolean&gt;</code></td></tr><tr><td><code>api.ui.addToolbarButton({ icon, title, onClick })</code></td><td>Button in der Mindmap-Toolbar</td></tr><tr><td><code>api.ui.addStartButton({ icon, title, onClick })</code></td><td>runder Button im Startbildschirm</td></tr><tr><td><code>api.ui.addProjectTab({ id, label, icon, render(el, { username }) })</code></td><td>eigener Tab neben „Mindmaps“ in der Projektliste</td></tr><tr><td><code>api.ui.selectProjectTab(id)</code></td><td>Tab wählen (<code>null</code> = „Mindmaps“)</td></tr><tr><td><code>api.ui.decorateMindmapCard((cardEl, eintrag, username) =&gt; …)</code></td><td>Karten der Mindmap-Liste ergänzen</td></tr><tr><td><code>api.ui.addImportOption({ icon, label, accept, directory, onFile(file, files) })</code></td><td>eigenes Import-Format im „Neues Projekt“-Dialog; <code>onFile</code> liefert <code>{ name, data }</code> (Mindmap-JSON). <code>directory: true</code> = Ordnerauswahl (alle Dateien in <code>files</code>, auf Android automatisch ausgeblendet)</td></tr><tr><td><code>api.ui.onBack(() =&gt; true/false)</code></td><td>Android-Zurück-Taste abfangen; <code>true</code> = erledigt</td></tr><tr><td><code>api.ui.addElement(el, parent?)</code></td><td>beliebiges Element einhängen</td></tr><tr><td><code>api.keys.add("ctrl+k", fn)</code></td><td>Tastenkürzel (<code>ctrl</code>, <code>shift</code>, <code>alt</code>; nicht während Texteingabe)</td></tr></table></div>
+<h3 id="aufräumen-automatisch">Aufräumen automatisch</h3>
+<div class="tabelle-huelle"><table><tr><th>Aufruf</th><th></th></tr><tr><td><code>api.every(ms, fn)</code> / <code>api.after(ms, fn)</code></td><td>Timer, die beim Ausschalten gestoppt werden</td></tr><tr><td><code>api.listen(target, type, fn)</code></td><td>DOM-Listener, der beim Ausschalten entfernt wird</td></tr><tr><td><code>api.onDispose(fn)</code></td><td>eigenes Aufräumen</td></tr></table></div>
+<p><strong>Wichtig für das Ein-/Ausschalten ohne Neustart:</strong> Keine eigenen <code>setInterval</code>, <code>addEventListener</code> usw. direkt verwenden, sondern die Varianten oben – sonst laufen sie nach dem Ausschalten weiter.</p>
+<h2 id="einstellungen">Einstellungen</h2>
+<p>Die App baut den Einstellungsdialog (⚙ in der Plugin-Liste) automatisch:</p>
+<pre><code>settings: [
+  { key: "farbe",   type: "color",   label: "Farbe",       default: "#00d4ff" },  // Wähler + Hex-Feld
+  { key: "vorgabe", type: "swatches", label: "Vorgabe",    default: "blau",       // Farbfelder
+    options: [{ value: "blau", label: "Blau", color: "#4d8dff" },
+              { value: "rot",  label: "Rot",  color: "#ff4d5e" }] },
+  { key: "staerke", type: "range",   label: "Stärke",      default: 0.5, min: 0, max: 1, step: 0.05 },
+  { key: "anzahl",  type: "number",  label: "Anzahl",      default: 3, min: 1 },
+  { key: "an",      type: "boolean", label: "Aktiviert",   default: true },          // Schalter
+  { key: "modus",   type: "select",  label: "Modus",       default: "a",
+    options: [{ value: "a", label: "Variante A" }, { value: "b", label: "Variante B" }] },
+  { key: "text",    type: "text",    label: "Beschriftung", default: "", hint: "Optionaler Hinweis" },
+]</code></pre>
+<p>Änderungen wirken sofort: <code>api.settings.onChange((key, value, all) =&gt; …)</code>.</p>
+<ul><li><code>color</code> zeigt einen Farbwähler und ein Hex-Feld (<code>#rrggbb</code>, auch <code>rgb</code>-Kurzform; ungültige Eingaben werden markiert und nicht übernommen).</li><li><code>swatches</code> zeigt abgerundete Farbfelder; gespeichert wird der <code>value</code> des gewählten Feldes.</li><li><code>boolean</code> erscheint als Schalter.</li></ul>
+<p>Ein Feld nur unter einer Bedingung anzeigen: <code>{ key: "farbe2", type: "color", label: "Zweite Farbe", showIf: { verlauf: true } }</code>. Ändert das Plugin selbst eine Einstellung (<code>api.settings.set</code>), zieht der offene Dialog mit.</p>
+<h2 id="sicherheitsregeln-der-app-gelten-auch-für-plugins">Sicherheitsregeln der App (gelten auch für Plugins)</h2>
+<ul><li><strong>Kein Netz:</strong> Die Content Security Policy blockiert jedes Laden oder Senden ins Internet (<code>fetch</code>, Bilder, Skripte von Servern). Plugins arbeiten nur mit lokalen Daten und Dateien aus <code>plugins/</code>. Bilder/Töne als <code>data:</code> oder <code>blob:</code> gehen.</li><li>Erlaubt sind eigene Skripte, <code>eval</code>/<code>new Function</code> und Inline-Styles (<code>api.ui.addStyle</code>).</li><li><strong>Nutzertext nie ungeprüft als HTML einsetzen:</strong> <code>textContent</code> verwenden oder maskieren – auch Anführungszeichen, wenn der Wert in einem Attribut landet (<code>value="…"</code>).</li><li><strong>Keine Mindmap-Daten am Kern vorbei speichern</strong> (kein eigenes <code>localStorage</code>/IndexedDB für Inhalte). Sonst landen sie im Hochsicherheitsmodus als Klartext auf dem Gerät.</li><li>Eigene Import-Formate liefern ihre Daten an den Kern; dort laufen sie durch die Import-Prüfung (<code>js/map-validate.js</code>) und Bilder durch die Metadaten-Bereinigung (<code>js/media-clean.js</code>).</li></ul>
+<h2 id="stabilität">Stabilität</h2>
+<ul><li>Jeder Aufruf eines Plugins ist abgesichert. Ein Fehler bringt die App nicht zum Absturz.</li><li>Nach <strong>5 Fehlern</strong> wird ein Plugin automatisch ausgeschaltet (mit Hinweis).</li><li>Schlägt <code>activate</code> fehl, wird alles bereits Registrierte zurückgenommen.</li><li><code>apiVersion</code> höher als die der App → Plugin wird als „benötigt neuere Version“ angezeigt.</li></ul>
+<h2 id="installieren-und-verteilen">Installieren und verteilen</h2>
+<ul><li><strong>Aus Datei:</strong> 🧩 → „Plugin aus Datei installieren“ → <code>.js</code> wählen. Gleiche <code>id</code> erneut installieren = Update.</li></ul>
+</div></section>
+</main>
+<footer class="fuss">
+  <div class="wrap">
+    <a class="marke" href="index.html"><img src="img/logo.svg" alt="" width="28" height="28">mind3D</a>
+    <nav aria-label="Fußzeile">
+      <a href="funktionen.html">Funktionen</a>
+      <a href="plugins.html">Plugins</a>
+      <a href="sicherheit.html">Sicherheit</a>
+      <a href="plugin-entwicklung.html">Plugins entwickeln</a>
+      <a href="download.html">Download</a>
+      
+    </nav>
+    <span class="rechts">Version 1.1.0 · 100 % kostenlos · offline · ohne Tracker</span>
+  </div>
+</footer>
+</div>
+<script src="js/sterne.js"></script>
+<script src="js/site.js"></script>
+</body>
+</html>

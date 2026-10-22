@@ -1,0 +1,164 @@
+<!doctype html>
+<html lang="de">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>mind3D – Gedanken in Ebenen und 3D</title>
+  <meta name="description" content="mind3D ist eine Mindmap-App für Android und Windows: unendlich tief verschachtelt, mit 3D-Ansicht, komplett offline und auf Wunsch verschlüsselt.">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; img-src 'self' data:; style-src 'self'; script-src 'self'; object-src 'none'; base-uri 'none'; form-action 'none'">
+  <meta name="referrer" content="no-referrer">
+  <meta name="theme-color" content="#000011">
+  <meta property="og:title" content="mind3D – Gedanken in Ebenen und 3D">
+  <meta property="og:description" content="mind3D ist eine Mindmap-App für Android und Windows: unendlich tief verschachtelt, mit 3D-Ansicht, komplett offline und auf Wunsch verschlüsselt.">
+  <meta property="og:image" content="img/mindmap.webp">
+  <link rel="icon" href="img/logo.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="css/site.css">
+</head>
+<body>
+<canvas id="sterne" aria-hidden="true"></canvas>
+<div class="seite">
+<header class="kopf">
+  <div class="wrap">
+    <a class="marke" href="index.html"><img src="img/logo.svg" alt="" width="34" height="34">mind3D</a>
+    <button class="menue-knopf" type="button" aria-expanded="false" aria-controls="nav" aria-label="Menü">☰</button>
+    <nav class="nav" id="nav" aria-label="Hauptmenü">
+      <a href="index.html" aria-current="page">Start</a><a href="funktionen.html">Funktionen</a><a href="plugins.html">Plugins</a><a href="sicherheit.html">Sicherheit</a><a class="knopf" href="download.html">Download</a>
+    </nav>
+  </div>
+</header>
+<main>
+<section class="held">
+  <div class="wrap">
+    <div>
+      <img class="logo" src="img/logo.svg" alt="mind3D Logo" width="104" height="104">
+      <h1>Deine Gedanken.<br><span class="akzent">Unendlich tief.</span></h1>
+      <p class="einleitung">mind3D ist eine Mindmap-App, in der jede Idee eine eigene Welt sein kann. Tippe doppelt auf einen Knoten und du bist drin. Mit Texten, Bildern, Tönen und Dokumenten, als 3D-Raum zum Drehen und auf Wunsch verschlüsselt.</p>
+      <div class="knoepfe">
+        <a class="knopf" href="download.html">Kostenlos herunterladen</a>
+        <a class="knopf zweit" href="funktionen.html">Was mind3D kann</a>
+      </div>
+      <p class="leise klein abstand-16">100 % kostenlos · für Android und Windows · komplett offline · ohne Konto · ohne Werbung</p>
+    </div>
+    <div class="bild">
+      <img class="desktop" src="img/mindmap.webp" alt="Eine Mindmap „Weltreise 2027“ in mind3D mit Knoten für Route, Japan, Budget, Packliste und ein Foto" width="1280" height="800">
+      <img class="handy" src="img/projekte.webp" alt="Projektliste von mind3D auf dem Handy" width="585" height="1266">
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="zentriert">
+      <span class="etikett">Warum mind3D</span>
+      <h2>Mehr als Kästchen und Linien</h2>
+      <p class="einleitung">Klassische Mindmaps werden schnell zu groß für einen Bildschirm. mind3D löst das mit Ebenen: Jeder Knoten kann eine ganze Mindmap in sich tragen.</p>
+    </div>
+    <div class="raster abstand-32">
+      <div class="karte leuchtet">
+        <h3><span class="symbol">🪐</span>Unendliche Ebenen</h3>
+        <p class="leise">Doppelt tippen und du bist im Knoten. ▲ bringt dich wieder hoch. So bleibt auch ein riesiges Projekt übersichtlich.</p>
+      </div>
+      <div class="karte leuchtet">
+        <h3><span class="symbol">🌐</span>Alles in 3D</h3>
+        <p class="leise">Sieh deine ganze Mindmap als Raum aus Kugeln und Fäden. Drehen, suchen und mit einem Tipp zurück in die 2D-Ansicht springen.</p>
+      </div>
+      <div class="karte leuchtet">
+        <h3><span class="symbol">🖼</span>Mehr als Text</h3>
+        <p class="leise">Text, Bilder, Töne und Dokumente wie PDF oder Word direkt als Knoten. Verbindungen kannst du beschriften und einfärben.</p>
+      </div>
+      <div class="karte leuchtet">
+        <h3><span class="symbol">🔐</span>Gehört nur dir</h3>
+        <p class="leise">Alles bleibt auf deinem Gerät. Kein Konto, keine Cloud, keine Tracker. Auf Wunsch verschlüsselt mit AES-256.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap paar">
+    <div>
+      <span class="etikett">Ebenen</span>
+      <h2>Rein in die Idee</h2>
+      <p class="leise">Der Knoten „Japan“ aus der Reiseplanung enthält eine eigene Mindmap mit Tokio, Kyoto und der Kirschblüte. Verbindungen dürfen auch über Ebenen hinweg gehen; mind3D zeigt dir, wohin sie führen.</p>
+      <ul class="haken">
+        <li>Doppeltippen öffnet einen Knoten, ▲ geht eine Ebene hoch</li>
+        <li>Eine Vorschau zeigt, was in einem Knoten steckt</li>
+        <li>Beschriftete Verbindungen, z. B. „Shinkansen, 2:15 h“</li>
+      </ul>
+    </div>
+    <img src="img/ebene.webp" alt="Die Ebene „Japan“ mit den Knoten Tokio, Kyoto und Kirschblüte" width="1184" height="761" loading="lazy">
+  </div>
+</section>
+
+<section>
+  <div class="wrap paar umgekehrt">
+    <div>
+      <span class="etikett">3D-Ansicht</span>
+      <h2>Den Überblick drehen</h2>
+      <p class="leise">Ein Tipp auf „3D“ zeigt alle Ebenen gleichzeitig als Raum. Große Kugeln sind Bereiche mit Unterknoten, die Farben kommen aus deiner Mindmap. Die Suche fliegt dich direkt zum gesuchten Knoten.</p>
+      <a href="plugins.html#ansicht3d">Mehr zur 3D-Ansicht →</a>
+    </div>
+    <img src="img/3d-ansicht.webp" alt="Die Mindmap „Weltreise 2027“ als 3D-Graph mit farbigen Kugeln" width="1184" height="761" loading="lazy">
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="zentriert">
+      <span class="etikett">So einfach geht's</span>
+      <h2>In einer Minute startklar</h2>
+    </div>
+    <div class="schritte abstand-28">
+      <div class="karte schritt"><h3>Namen eingeben</h3><p class="leise">Kein Konto, keine E-Mail. Der Name sortiert nur deine Projekte auf diesem Gerät.</p></div>
+      <div class="karte schritt"><h3>Projekt anlegen</h3><p class="leise">Mit ＋ eine neue Mindmap erstellen oder eine vorhandene importieren.</p></div>
+      <div class="karte schritt"><h3>Knoten setzen</h3><p class="leise">Mit dem runden ＋ Knoten hinzufügen, mit ⟷ verbinden. Gespeichert wird automatisch.</p></div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap paar">
+    <img class="hoch" src="img/sicherheit.webp" alt="Das Sicherheits-Center von mind3D auf dem Handy" width="585" height="1266" loading="lazy">
+    <div>
+      <span class="etikett">Sicherheit</span>
+      <h2>Deine Gedanken bleiben deine</h2>
+      <p class="leise">mind3D funktioniert komplett ohne Internet. Wer mehr Schutz will, schaltet im Sicherheits-Center die Verschlüsselung ein: für alle Mindmaps oder nur für einen Tresor mit eigenem Passwort.</p>
+      <ul class="haken">
+        <li>Keine Tracker, keine Werbung, kein Konto</li>
+        <li>Verschlüsselung mit AES-256, Schlüssel im Sicherheitschip des Handys</li>
+        <li>App-Sperre per Fingerabdruck, Schutz vor Screenshots</li>
+      </ul>
+      <a href="sicherheit.html">Alles zur Sicherheit →</a>
+    </div>
+  </div>
+</section>
+
+<section class="eng">
+  <div class="wrap zentriert">
+    <div class="karte leuchtet aufruf">
+      <h2>Bereit für deine erste Ebene?</h2>
+      <p class="leise">100 % kostenlos, ohne Werbung und ohne Abo. Für Android 10 oder neuer und Windows 10/11.</p>
+      <a class="knopf" href="download.html">Zum Download</a>
+    </div>
+  </div>
+</section>
+</main>
+<footer class="fuss">
+  <div class="wrap">
+    <a class="marke" href="index.html"><img src="img/logo.svg" alt="" width="28" height="28">mind3D</a>
+    <nav aria-label="Fußzeile">
+      <a href="funktionen.html">Funktionen</a>
+      <a href="plugins.html">Plugins</a>
+      <a href="sicherheit.html">Sicherheit</a>
+      <a href="plugin-entwicklung.html">Plugins entwickeln</a>
+      <a href="download.html">Download</a>
+      
+    </nav>
+    <span class="rechts">Version 1.1.0 · 100 % kostenlos · offline · ohne Tracker</span>
+  </div>
+</footer>
+</div>
+<script src="js/sterne.js"></script>
+<script src="js/site.js"></script>
+</body>
+</html>

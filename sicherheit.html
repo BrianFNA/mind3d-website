@@ -1,0 +1,150 @@
+<!doctype html>
+<html lang="de">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Sicherheit – mind3D</title>
+  <meta name="description" content="Wie mind3D deine Gedanken schützt: offline, ohne Tracker, auf Wunsch mit AES-256 verschlüsselt.">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; img-src 'self' data:; style-src 'self'; script-src 'self'; object-src 'none'; base-uri 'none'; form-action 'none'">
+  <meta name="referrer" content="no-referrer">
+  <meta name="theme-color" content="#000011">
+  <meta property="og:title" content="Sicherheit – mind3D">
+  <meta property="og:description" content="Wie mind3D deine Gedanken schützt: offline, ohne Tracker, auf Wunsch mit AES-256 verschlüsselt.">
+  <meta property="og:image" content="img/mindmap.webp">
+  <link rel="icon" href="img/logo.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="css/site.css">
+</head>
+<body>
+<canvas id="sterne" aria-hidden="true"></canvas>
+<div class="seite">
+<header class="kopf">
+  <div class="wrap">
+    <a class="marke" href="index.html"><img src="img/logo.svg" alt="" width="34" height="34">mind3D</a>
+    <button class="menue-knopf" type="button" aria-expanded="false" aria-controls="nav" aria-label="Menü">☰</button>
+    <nav class="nav" id="nav" aria-label="Hauptmenü">
+      <a href="index.html">Start</a><a href="funktionen.html">Funktionen</a><a href="plugins.html">Plugins</a><a href="sicherheit.html" aria-current="page">Sicherheit</a><a class="knopf" href="download.html">Download</a>
+    </nav>
+  </div>
+</header>
+<main>
+<section class="eng">
+  <div class="wrap">
+    <span class="etikett">Sicherheit</span>
+    <h1>Deine Gedanken bleiben deine</h1>
+    <p class="einleitung">Mindmaps enthalten oft das Persönlichste: Pläne, Ideen, Tagebuch, Arbeit. mind3D schützt sie in zwei Stufen. Der Grundschutz gilt immer und kostet keinen Komfort. Wer mehr will, schaltet die Verschlüsselung ein.</p>
+  </div>
+</section>
+
+<section class="eng">
+  <div class="wrap">
+    <h2>Immer aktiv, für alle</h2>
+    <div class="raster abstand-16">
+      <div class="karte"><h3><span class="symbol">📴</span>Komplett offline</h3><p class="leise">mind3D lädt nichts aus dem Internet und sendet nichts dorthin. Die Android-App hat nicht einmal die Berechtigung dazu.</p></div>
+      <div class="karte"><h3><span class="symbol">🚫</span>Keine Tracker</h3><p class="leise">Kein Konto, keine Werbung, keine Analyse-Dienste. Geprüft: 0 von 432 bekannten Trackern.</p></div>
+      <div class="karte"><h3><span class="symbol">☁️</span>Keine Cloud-Kopie</h3><p class="leise">Die App-Daten landen weder in der Google-Sicherung noch bei der Übertragung auf ein neues Handy. Gesichert wird nur, was du selbst exportierst.</p></div>
+      <div class="karte"><h3><span class="symbol">📍</span>Bilder ohne Spuren</h3><p class="leise">GPS-Position, Kameradaten und andere versteckte Infos werden beim Einfügen, Importieren und Exportieren aus Bildern entfernt.</p></div>
+      <div class="karte"><h3><span class="symbol">🧪</span>Geprüfte Importe</h3><p class="leise">Jede importierte Datei wird vor dem Öffnen geprüft. Präparierte Mindmaps können keinen Code einschleusen.</p></div>
+      <div class="karte"><h3><span class="symbol">🧱</span>Abgeschottet</h3><p class="leise">mind3D zeigt nur die eigenen Seiten, Links öffnen im Browser. Die PC-Version läuft auf einer aktuellen, gehärteten Grundlage (Electron 44).</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="eng">
+  <div class="wrap paar">
+    <div>
+      <span class="etikett">🛡 Sicherheits-Center</span>
+      <h2>Verschlüsselung auf Knopfdruck</h2>
+      <p class="leise">Im Startbildschirm unter 🛡. Ein Assistent führt in drei Schritten durch: Passwort wählen, Wiederherstellungswörter aufschreiben, drei Wörter zur Kontrolle eingeben.</p>
+      <div class="raster abstand-16">
+        <div class="karte leuchtet">
+          <h3>🔐 Alles verschlüsseln</h3>
+          <p class="leise">Alle Mindmaps und auch ihre Namen werden verschlüsselt. Auf Android entsperrt sich mind3D automatisch über den Sicherheitschip deines Handys, am PC mit deinem Passwort.</p>
+        </div>
+        <div class="karte leuchtet">
+          <h3>🗄 Tresor</h3>
+          <p class="leise">Nur ausgewählte Mindmaps kommen in einen eigenen Tab mit eigenem Passwort. Der Tresor sperrt sich nach einer einstellbaren Zeit und sobald du die App verlässt.</p>
+        </div>
+      </div>
+    </div>
+    <img class="hoch" src="img/sicherheit.webp" alt="Das Sicherheits-Center" width="585" height="1266" loading="lazy">
+  </div>
+</section>
+
+<section class="eng">
+  <div class="wrap">
+    <h2>Was noch dazugehört</h2>
+    <div class="raster abstand-16">
+      <div class="karte"><h3><span class="symbol">📝</span>Wiederherstellungswörter</h3><p class="leise">24 Wörter als Ersatzschlüssel, falls du dein Passwort vergisst oder das Gerät wechselst. Aufschreiben oder in einem Passwort-Manager wie KeePass speichern. Tippfehler erkennt die App sofort.</p></div>
+      <div class="karte"><h3><span class="symbol">📦</span>Verschlüsselter Export</h3><p class="leise">Exporte bleiben als .m3e verschlüsselt. Zum Weitergeben gibt es ein eigenes Exportpasswort. Veränderte oder beschädigte Dateien werden erkannt.</p></div>
+      <div class="karte"><h3><span class="symbol">👆</span>App-Sperre</h3><p class="leise">mind3D öffnet sich nur mit Fingerabdruck, Gesicht oder der Displaysperre deines Handys (Android).</p></div>
+      <div class="karte"><h3><span class="symbol">🖼</span>Bildschirmschutz</h3><p class="leise">Keine Screenshots und Bildschirmaufnahmen, verdeckte Vorschau in der App-Übersicht.</p></div>
+      <div class="karte"><h3><span class="symbol">👁</span>Schutz vor mitlesenden Apps</h3><p class="leise">Ab Android 14 sehen fremde Apps mit Bedienungshilfe-Rechten deine Inhalte nicht. TalkBack funktioniert weiter.</p></div>
+      <div class="karte"><h3><span class="symbol">⌨️</span>Tastatur lernt nicht mit</h3><p class="leise">Passwort- und Wörterfelder haben keine Vorschläge und keine Autokorrektur.</p></div>
+      <div class="karte"><h3><span class="symbol">💽</span>Verschlüsselte Backups</h3><p class="leise">Ist die Verschlüsselung an, werden auch automatische Sicherungen verschlüsselt und alte unverschlüsselte Kopien gelöscht.</p></div>
+      <div class="karte"><h3><span class="symbol">🔄</span>Sicherer Wechsel</h3><p class="leise">Wird das Ein- oder Ausschalten unterbrochen, macht mind3D beim nächsten Start weiter. Jede Mindmap wird danach geprüft.</p></div>
+      <div class="karte"><h3><span class="symbol">⚠️</span>Hinweis bei Root</h3><p class="leise">Auf gerooteten oder veränderten Geräten weist mind3D einmal darauf hin, dass der Schutz dort schwächer ist.</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="eng">
+  <div class="wrap">
+    <h2>Technik und Prüfung</h2>
+    <div class="tabelle-huelle">
+      <table>
+        <tr><th>Bereich</th><th>Umsetzung</th></tr>
+        <tr><td>Verschlüsselung</td><td>AES-256-GCM, für jede Mindmap ein eigener Schlüssel (HKDF-SHA-256), gebunden an ihren Speicherort</td></tr>
+        <tr><td>Passwörter</td><td>Argon2id mit 64 MiB Speicher, damit Erraten sehr teuer wird</td></tr>
+        <tr><td>Geräteschlüssel</td><td>Android-Keystore im Sicherheitschip (TEE, wo vorhanden StrongBox); der Schlüssel verlässt den Chip nie</td></tr>
+        <tr><td>Wiederherstellung</td><td>24 Wörter nach BIP39 (256 Bit mit Prüfsumme)</td></tr>
+        <tr><td>Empfehlungen</td><td>Verfahren nach BSI TR-02102-1; Selbstprüfung nach OWASP MASVS</td></tr>
+        <tr><td>Automatischer Scan</td><td>MobSF: 96 von 100 Punkten, keine Tracker</td></tr>
+        <tr><td>Bibliotheken</td><td>gegen die Datenbank osv.dev geprüft: keine bekannten Lücken</td></tr>
+      </table>
+    </div>
+    <p class="leise klein abstand-16">mind3D hat keine offizielle Sicherheitszertifizierung. Die Angaben beschreiben, nach welchen Empfehlungen gebaut und wie selbst geprüft wurde.</p>
+  </div>
+</section>
+
+<section class="eng">
+  <div class="wrap">
+    <h2>Häufige Fragen</h2>
+    <details><summary>Was passiert, wenn ich mein Passwort vergesse?</summary><p>Mit deinen 24 Wiederherstellungswörtern setzt du es zurück. Ohne Passwort und ohne Wörter kommt niemand mehr an die verschlüsselten Mindmaps, auch nicht der Entwickler. Bewahre die Wörter deshalb sicher auf.</p></details>
+    <details><summary>Muss ich die Verschlüsselung einschalten?</summary><p>Nein. Der Grundschutz gilt immer. Die Verschlüsselung lohnt sich, wenn andere an dein Gerät kommen könnten oder du sehr persönliche Inhalte hast.</p></details>
+    <details><summary>Warum brauche ich auf Android kein Passwort?</summary><p>Bei „Alles verschlüsseln“ liegt der Schlüssel im Sicherheitschip deines Handys und wird nur auf dem entsperrten Gerät freigegeben. Für zusätzlichen Schutz gibt es die App-Sperre per Fingerabdruck oder den Tresor mit eigenem Passwort.</p></details>
+    <details><summary>Kann ich verschlüsselte Mindmaps auf ein neues Gerät mitnehmen?</summary><p>Ja. Exportiere sie als .m3e und öffne sie auf dem neuen Gerät. mind3D fragt dort nach deinen Wiederherstellungswörtern.</p></details>
+    <details><summary>Wie melde ich eine Sicherheitslücke?</summary><p>Per E-Mail an <a href="mailto:mind3D.dev@gmail.com?subject=Sicherheit">mind3D.dev@gmail.com</a> mit dem Betreff „Sicherheit“. Meldungen werden vertraulich behandelt; Details werden erst nach einer Korrektur veröffentlicht.</p></details>
+  </div>
+</section>
+
+<section class="eng">
+  <div class="wrap">
+    <h2>Geplant</h2>
+    <ul class="haken geplant">
+      <li><strong>Ende-zu-Ende-Verschlüsselung für geteilte Mindmaps</strong>, sobald das Teilen mit anderen kommt. Geteilte Mindmaps sind dann immer verschlüsselt.</li>
+      <li><strong>Signierte PC-Version</strong> mit Prüfung, ob die Programmdateien verändert wurden</li>
+      <li><strong>Regelmäßige Sicherheitsupdates</strong> der PC-Grundlage und der Bibliotheken</li>
+      <li><strong>Externe Sicherheitsprüfung</strong> vor größeren Versionen</li>
+    </ul>
+  </div>
+</section>
+</main>
+<footer class="fuss">
+  <div class="wrap">
+    <a class="marke" href="index.html"><img src="img/logo.svg" alt="" width="28" height="28">mind3D</a>
+    <nav aria-label="Fußzeile">
+      <a href="funktionen.html">Funktionen</a>
+      <a href="plugins.html">Plugins</a>
+      <a href="sicherheit.html">Sicherheit</a>
+      <a href="plugin-entwicklung.html">Plugins entwickeln</a>
+      <a href="download.html">Download</a>
+      
+    </nav>
+    <span class="rechts">Version 1.1.0 · 100 % kostenlos · offline · ohne Tracker</span>
+  </div>
+</footer>
+</div>
+<script src="js/sterne.js"></script>
+<script src="js/site.js"></script>
+</body>
+</html>
