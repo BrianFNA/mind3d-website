@@ -4,4 +4,6 @@ Die Website von **mind3D**, der Mindmap-App mit unendlich tiefen Ebenen und 3D-A
 
 Statische Seiten ohne externe Abhängigkeiten: keine fremden Schriften, Skripte oder Cookies.
 
+Ein Projekt von Brian_FNA (Gründer) und nugnu (Co-Founder).
+
 Kontakt: mind3D.dev@gmail.com
