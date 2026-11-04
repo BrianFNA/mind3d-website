@@ -64,6 +64,8 @@ img { max-width: 100%; height: auto; display: block; }
 .nav a:hover { color: var(--text); background: rgba(var(--accent-rgb), 0.08); text-decoration: none; }
 .nav a[aria-current="page"] { color: var(--accent); background: rgba(var(--accent-rgb), 0.1); }
 .nav .knopf { margin-left: 6px; }
+.nav .sprache { margin-left: 6px; border: 1px solid var(--line); font-size: 13px; font-weight: 700; letter-spacing: 0.06em; padding: 7px 10px; }
+.nav .sprache:hover { color: var(--accent); border-color: var(--accent); }
 .menue-knopf {
   display: none; margin-left: auto;
   background: none; border: 1px solid var(--line); color: var(--text);
@@ -79,6 +81,7 @@ img { max-width: 100%; height: auto; display: block; }
   .nav.offen { display: flex; }
   .nav a { padding: 12px; font-size: 16px; }
   .nav .knopf { margin: 8px 0 0; text-align: center; }
+  .nav .sprache { margin: 8px 0 0; text-align: center; }
 }
 
 /* ── Knöpfe ──────────────────────────────────────────────── */

@@ -1,16 +1,19 @@
 <!doctype html>
-<html lang="de">
+<html lang="en">
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Lizenzen – mind3D</title>
-  <meta name="description" content="Open-Source-Bestandteile von mind3D und ihre Lizenzen.">
+  <title>Licences – mind3D</title>
+  <meta name="description" content="Open-source components of mind3D and their licences.">
   <meta http-equiv="Content-Security-Policy" content="default-src 'self'; img-src 'self' data:; style-src 'self'; script-src 'self'; object-src 'none'; base-uri 'none'; form-action 'none'">
   <meta name="referrer" content="no-referrer">
   <meta name="theme-color" content="#000011">
-  <meta property="og:title" content="Lizenzen – mind3D">
-  <meta property="og:description" content="Open-Source-Bestandteile von mind3D und ihre Lizenzen.">
+  <meta property="og:title" content="Licences – mind3D">
+  <meta property="og:description" content="Open-source components of mind3D and their licences.">
   <meta property="og:image" content="img/mindmap.webp">
+  <link rel="alternate" hreflang="en" href="https://brianfna.github.io/mind3d-website/lizenzen.html">
+  <link rel="alternate" hreflang="de" href="https://brianfna.github.io/mind3d-website/de/lizenzen.html">
+  <link rel="alternate" hreflang="x-default" href="https://brianfna.github.io/mind3d-website/lizenzen.html">
   <link rel="icon" href="img/logo.svg" type="image/svg+xml">
   <link rel="stylesheet" href="css/site.css">
 </head>
@@ -20,51 +23,52 @@
 <header class="kopf">
   <div class="wrap">
     <a class="marke" href="index.html"><img src="img/logo.svg" alt="" width="34" height="34">mind3D</a>
-    <button class="menue-knopf" type="button" aria-expanded="false" aria-controls="nav" aria-label="Menü">☰</button>
-    <nav class="nav" id="nav" aria-label="Hauptmenü">
-      <a href="index.html">Start</a><a href="funktionen.html">Funktionen</a><a href="plugins.html">Plugins</a><a href="sicherheit.html">Sicherheit</a><a class="knopf" href="download.html">Download</a>
+    <button class="menue-knopf" type="button" aria-expanded="false" aria-controls="nav" aria-label="Menu">☰</button>
+    <nav class="nav" id="nav" aria-label="Main menu">
+      <a href="index.html">Home</a><a href="funktionen.html">Features</a><a href="plugins.html">Plugins</a><a href="sicherheit.html">Security</a><a class="knopf" href="download.html">Download</a><a class="sprache" href="de/lizenzen.html" hreflang="de" lang="de" title="Deutsch">DE</a>
     </nav>
   </div>
 </header>
 <main>
 <section class="eng">
   <div class="wrap text-seite">
-    <h1>Lizenzen</h1>
-    <p class="stand">Open-Source-Bestandteile von mind3D 1.1.1 · geprüft am 26. Oktober 2026</p>
+    <h1>Licences</h1>
+    <p class="stand">Open-source components of mind3D 1.1.1 · checked on 4 November 2026</p>
 
-    <p>mind3D selbst ist © 2026 Brian_FNA und nugnu. Die App nutzt die folgenden freien Bibliotheken. Wir danken ihren Autorinnen und Autoren. Die vollständigen Lizenztexte liegen der App bei (Startbildschirm → ℹ → Rechtliches); bei der Windows-Version stehen die von Chromium zusätzlich in <code>LICENSES.chromium.html</code> im Programmordner.</p>
+    <p>mind3D itself is © 2026 Brian_FNA and nugnu. The app uses the following free libraries. We thank their authors. The full licence texts are included in the app (start screen → ℹ → Legal); in the Windows version, Chromium’s are also in <code>LICENSES.chromium.html</code> in the program folder.</p>
 
     <div class="tabelle-huelle">
       <table>
-        <tr><th>Bestandteil</th><th>Version</th><th>Lizenz</th><th>Wofür</th></tr>
-        <tr><td><a href="https://github.com/Daninet/hash-wasm" rel="noopener">hash-wasm</a> (Dani Biró)</td><td>4.12.0</td><td>MIT</td><td>Passwort-Schutz (Argon2id)</td></tr>
-        <tr><td><a href="https://github.com/bitcoin/bips/blob/master/bip-0039/english.txt" rel="noopener">BIP39-Wortliste</a></td><td>englisch</td><td>MIT</td><td>Wiederherstellungswörter</td></tr>
-        <tr><td><a href="https://github.com/vasturiano/3d-force-graph" rel="noopener">3d-force-graph</a> (Vasco Asturiano)</td><td>1.80.1</td><td>MIT</td><td>3D-Ansicht</td></tr>
-        <tr><td><a href="https://github.com/mrdoob/three.js" rel="noopener">three.js</a> (in 3d-force-graph)</td><td>r186</td><td>MIT</td><td>3D-Darstellung</td></tr>
-        <tr><td><a href="https://github.com/Stuk/jszip" rel="noopener">JSZip</a> (Stuart Knightley u. a.)</td><td>3.10.2</td><td>MIT (gewählt aus MIT/GPLv3)</td><td>Obsidian-Vaults als .zip</td></tr>
-        <tr><td><a href="https://github.com/nodeca/pako" rel="noopener">pako</a> (in JSZip)</td><td>1.0.11</td><td>MIT und Zlib</td><td>Entpacken</td></tr>
-        <tr><td><a href="https://github.com/electron/electron" rel="noopener">Electron</a> mit Chromium und Node.js</td><td>44.9.3</td><td>MIT; Chromium: BSD-3-Clause u. a.</td><td>Grundlage der Windows-Version</td></tr>
+        <tr><th>Component</th><th>Version</th><th>Licence</th><th>Used for</th></tr>
+        <tr><td><a href="https://github.com/Daninet/hash-wasm" rel="noopener">hash-wasm</a> (Dani Biró)</td><td>4.12.0</td><td>MIT</td><td>Password protection (Argon2id)</td></tr>
+        <tr><td><a href="https://github.com/bitcoin/bips/blob/master/bip-0039/english.txt" rel="noopener">BIP39 word list</a></td><td>English</td><td>MIT</td><td>Recovery words</td></tr>
+        <tr><td><a href="https://github.com/vasturiano/3d-force-graph" rel="noopener">3d-force-graph</a> (Vasco Asturiano)</td><td>1.80.1</td><td>MIT</td><td>3D view</td></tr>
+        <tr><td><a href="https://github.com/mrdoob/three.js" rel="noopener">three.js</a> (in 3d-force-graph)</td><td>r186</td><td>MIT</td><td>3D rendering</td></tr>
+        <tr><td><a href="https://github.com/Stuk/jszip" rel="noopener">JSZip</a> (Stuart Knightley et al.)</td><td>3.10.2</td><td>MIT (chosen from MIT/GPLv3)</td><td>Obsidian vaults as .zip</td></tr>
+        <tr><td><a href="https://github.com/nodeca/pako" rel="noopener">pako</a> (in JSZip)</td><td>1.0.11</td><td>MIT and Zlib</td><td>Unpacking</td></tr>
+        <tr><td><a href="https://github.com/electron/electron" rel="noopener">Electron</a> with Chromium and Node.js</td><td>44.9.3</td><td>MIT; Chromium: BSD-3-Clause and others</td><td>Base of the Windows version</td></tr>
       </table>
     </div>
-    <p class="leise klein">Die Android-Version nutzt die System-WebView von Android und keine weiteren Bibliotheken.</p>
+    <p class="leise klein">The Android version uses Android’s system WebView and no other libraries.</p>
   </div>
 </section>
 </main>
 <footer class="fuss">
   <div class="wrap">
     <a class="marke" href="index.html"><img src="img/logo.svg" alt="" width="28" height="28">mind3D</a>
-    <nav aria-label="Fußzeile">
-      <a href="funktionen.html">Funktionen</a>
+    <nav aria-label="Footer">
+      <a href="funktionen.html">Features</a>
       <a href="plugins.html">Plugins</a>
-      <a href="sicherheit.html">Sicherheit</a>
-      <a href="plugin-entwicklung.html">Plugins entwickeln</a>
+      <a href="sicherheit.html">Security</a>
+      <a href="plugin-entwicklung.html">Developing plugins</a>
       <a href="download.html">Download</a>
-      <a href="impressum.html">Impressum</a>
-      <a href="datenschutz.html">Datenschutz</a>
-      <a href="nutzungsbedingungen.html">Nutzungsbedingungen</a>
-      <a href="lizenzen.html">Lizenzen</a>
+      <a href="impressum.html">Legal notice</a>
+      <a href="datenschutz.html">Privacy</a>
+      <a href="nutzungsbedingungen.html">Terms of use</a>
+      <a href="lizenzen.html">Licences</a>
+      <a href="de/index.html" hreflang="de" lang="de">Deutsch</a>
     </nav>
-    <span class="rechts">© 2026 Brian_FNA &amp; nugnu · Version 1.1.1 · 100 % kostenlos</span>
+    <span class="rechts">© 2026 Brian_FNA &amp; nugnu · Version 1.1.1 · 100 % free</span>
   </div>
 </footer>
 </div>

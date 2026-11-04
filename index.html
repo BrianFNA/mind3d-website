@@ -1,16 +1,19 @@
 <!doctype html>
-<html lang="de">
+<html lang="en">
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>mind3D – Gedanken in Ebenen und 3D</title>
-  <meta name="description" content="mind3D ist eine Mindmap-App für Android und Windows: unendlich tief verschachtelt, mit 3D-Ansicht, komplett offline und auf Wunsch verschlüsselt.">
+  <title>mind3D – Thoughts in levels and 3D</title>
+  <meta name="description" content="mind3D is a mind map app for Android and Windows: endlessly nested, with a 3D view, fully offline and encrypted if you like.">
   <meta http-equiv="Content-Security-Policy" content="default-src 'self'; img-src 'self' data:; style-src 'self'; script-src 'self'; object-src 'none'; base-uri 'none'; form-action 'none'">
   <meta name="referrer" content="no-referrer">
   <meta name="theme-color" content="#000011">
-  <meta property="og:title" content="mind3D – Gedanken in Ebenen und 3D">
-  <meta property="og:description" content="mind3D ist eine Mindmap-App für Android und Windows: unendlich tief verschachtelt, mit 3D-Ansicht, komplett offline und auf Wunsch verschlüsselt.">
+  <meta property="og:title" content="mind3D – Thoughts in levels and 3D">
+  <meta property="og:description" content="mind3D is a mind map app for Android and Windows: endlessly nested, with a 3D view, fully offline and encrypted if you like.">
   <meta property="og:image" content="img/mindmap.webp">
+  <link rel="alternate" hreflang="en" href="https://brianfna.github.io/mind3d-website/">
+  <link rel="alternate" hreflang="de" href="https://brianfna.github.io/mind3d-website/de/">
+  <link rel="alternate" hreflang="x-default" href="https://brianfna.github.io/mind3d-website/">
   <link rel="icon" href="img/logo.svg" type="image/svg+xml">
   <link rel="stylesheet" href="css/site.css">
 </head>
@@ -20,9 +23,9 @@
 <header class="kopf">
   <div class="wrap">
     <a class="marke" href="index.html"><img src="img/logo.svg" alt="" width="34" height="34">mind3D</a>
-    <button class="menue-knopf" type="button" aria-expanded="false" aria-controls="nav" aria-label="Menü">☰</button>
-    <nav class="nav" id="nav" aria-label="Hauptmenü">
-      <a href="index.html" aria-current="page">Start</a><a href="funktionen.html">Funktionen</a><a href="plugins.html">Plugins</a><a href="sicherheit.html">Sicherheit</a><a class="knopf" href="download.html">Download</a>
+    <button class="menue-knopf" type="button" aria-expanded="false" aria-controls="nav" aria-label="Menu">☰</button>
+    <nav class="nav" id="nav" aria-label="Main menu">
+      <a href="index.html" aria-current="page">Home</a><a href="funktionen.html">Features</a><a href="plugins.html">Plugins</a><a href="sicherheit.html">Security</a><a class="knopf" href="download.html">Download</a><a class="sprache" href="de/index.html" hreflang="de" lang="de" title="Deutsch">DE</a>
     </nav>
   </div>
 </header>
@@ -30,18 +33,18 @@
 <section class="held">
   <div class="wrap">
     <div>
-      <img class="logo" src="img/logo.svg" alt="mind3D Logo" width="104" height="104">
-      <h1>Deine Gedanken.<br><span class="akzent">Unendlich tief.</span></h1>
-      <p class="einleitung">mind3D ist eine Mindmap-App, in der jede Idee eine eigene Welt sein kann. Tippe doppelt auf einen Knoten und du bist drin. Mit Texten, Bildern, Tönen und Dokumenten, als 3D-Raum zum Drehen und auf Wunsch verschlüsselt.</p>
+      <img class="logo" src="img/logo.svg" alt="mind3D logo" width="104" height="104">
+      <h1>Your thoughts.<br><span class="akzent">Endlessly deep.</span></h1>
+      <p class="einleitung">mind3D is a mind map app where every idea can be a world of its own. Double-tap a node and you are inside. With text, images, sounds and documents, as a 3D space you can rotate, and encrypted if you like.</p>
       <div class="knoepfe">
-        <a class="knopf" href="download.html">Kostenlos herunterladen</a>
-        <a class="knopf zweit" href="funktionen.html">Was mind3D kann</a>
+        <a class="knopf" href="download.html">Download for free</a>
+        <a class="knopf zweit" href="funktionen.html">What mind3D can do</a>
       </div>
-      <p class="leise klein abstand-16">100 % kostenlos · für Android und Windows · komplett offline · ohne Konto · ohne Werbung</p>
+      <p class="leise klein abstand-16">100 % free · for Android and Windows · fully offline · no account · no ads</p>
     </div>
     <div class="bild">
-      <img class="desktop" src="img/mindmap.webp" alt="Eine Mindmap „Weltreise 2027“ in mind3D mit Knoten für Route, Japan, Budget, Packliste und ein Foto" width="1280" height="800">
-      <img class="handy" src="img/projekte.webp" alt="Projektliste von mind3D auf dem Handy" width="585" height="1266">
+      <img class="desktop" src="img/mindmap.webp" alt="A mind map “Weltreise 2027” (world trip) in mind3D with nodes for route, Japan, budget, packing list and a photo" width="1280" height="800">
+      <img class="handy" src="img/projekte.webp" alt="mind3D project list on a phone" width="585" height="1266">
     </div>
   </div>
 </section>
@@ -49,26 +52,26 @@
 <section>
   <div class="wrap">
     <div class="zentriert">
-      <span class="etikett">Warum mind3D</span>
-      <h2>Mehr als Kästchen und Linien</h2>
-      <p class="einleitung">Klassische Mindmaps werden schnell zu groß für einen Bildschirm. mind3D löst das mit Ebenen: Jeder Knoten kann eine ganze Mindmap in sich tragen.</p>
+      <span class="etikett">Why mind3D</span>
+      <h2>More than boxes and lines</h2>
+      <p class="einleitung">Classic mind maps quickly grow too big for one screen. mind3D solves this with levels: every node can hold a whole mind map of its own.</p>
     </div>
     <div class="raster abstand-32">
       <div class="karte leuchtet">
-        <h3><span class="symbol">🪐</span>Unendliche Ebenen</h3>
-        <p class="leise">Doppelt tippen und du bist im Knoten. ▲ bringt dich wieder hoch. So bleibt auch ein riesiges Projekt übersichtlich.</p>
+        <h3><span class="symbol">🪐</span>Endless levels</h3>
+        <p class="leise">Double-tap and you are inside the node. ▲ takes you back up. Even a huge project stays easy to follow.</p>
       </div>
       <div class="karte leuchtet">
-        <h3><span class="symbol">🌐</span>Alles in 3D</h3>
-        <p class="leise">Sieh deine ganze Mindmap als Raum aus Kugeln und Fäden. Drehen, suchen und mit einem Tipp zurück in die 2D-Ansicht springen.</p>
+        <h3><span class="symbol">🌐</span>Everything in 3D</h3>
+        <p class="leise">See your whole mind map as a space of spheres and threads. Rotate, search and jump back to the 2D view with one tap.</p>
       </div>
       <div class="karte leuchtet">
-        <h3><span class="symbol">🖼</span>Mehr als Text</h3>
-        <p class="leise">Text, Bilder, Töne und Dokumente wie PDF oder Word direkt als Knoten. Verbindungen kannst du beschriften und einfärben.</p>
+        <h3><span class="symbol">🖼</span>More than text</h3>
+        <p class="leise">Text, images, sounds and documents such as PDF or Word directly as nodes. Connections can be labelled and coloured.</p>
       </div>
       <div class="karte leuchtet">
-        <h3><span class="symbol">🔐</span>Gehört nur dir</h3>
-        <p class="leise">Alles bleibt auf deinem Gerät. Kein Konto, keine Cloud, keine Tracker. Auf Wunsch verschlüsselt mit AES-256.</p>
+        <h3><span class="symbol">🔐</span>Yours alone</h3>
+        <p class="leise">Everything stays on your device. No account, no cloud, no trackers. Optionally encrypted with AES-256.</p>
       </div>
     </div>
   </div>
@@ -77,69 +80,69 @@
 <section>
   <div class="wrap paar">
     <div>
-      <span class="etikett">Ebenen</span>
-      <h2>Rein in die Idee</h2>
-      <p class="leise">Der Knoten „Japan“ aus der Reiseplanung enthält eine eigene Mindmap mit Tokio, Kyoto und der Kirschblüte. Verbindungen dürfen auch über Ebenen hinweg gehen; mind3D zeigt dir, wohin sie führen.</p>
+      <span class="etikett">Levels</span>
+      <h2>Step into the idea</h2>
+      <p class="leise">The node “Japan” from the trip plan holds its own mind map with Tokyo, Kyoto and the cherry blossom. Connections may also cross levels; mind3D shows you where they lead.</p>
       <ul class="haken">
-        <li>Doppeltippen öffnet einen Knoten, ▲ geht eine Ebene hoch</li>
-        <li>Eine Vorschau zeigt, was in einem Knoten steckt</li>
-        <li>Beschriftete Verbindungen, z. B. „Shinkansen, 2:15 h“</li>
+        <li>Double-tap opens a node, ▲ goes up one level</li>
+        <li>A preview shows what is inside a node</li>
+        <li>Labelled connections, e.g. “Shinkansen, 2:15 h”</li>
       </ul>
     </div>
-    <img src="img/ebene.webp" alt="Die Ebene „Japan“ mit den Knoten Tokio, Kyoto und Kirschblüte" width="1184" height="761" loading="lazy">
+    <img src="img/ebene.webp" alt="The level “Japan” with the nodes Tokyo, Kyoto and cherry blossom" width="1184" height="761" loading="lazy">
   </div>
 </section>
 
 <section>
   <div class="wrap paar umgekehrt">
     <div>
-      <span class="etikett">3D-Ansicht</span>
-      <h2>Den Überblick drehen</h2>
-      <p class="leise">Ein Tipp auf „3D“ zeigt alle Ebenen gleichzeitig als Raum. Große Kugeln sind Bereiche mit Unterknoten, die Farben kommen aus deiner Mindmap. Die Suche fliegt dich direkt zum gesuchten Knoten.</p>
-      <a href="plugins.html#ansicht3d">Mehr zur 3D-Ansicht →</a>
+      <span class="etikett">3D view</span>
+      <h2>Rotate the big picture</h2>
+      <p class="leise">One tap on “3D” shows all levels at once as a space. Large spheres are areas with child nodes, the colours come from your mind map. Search flies you straight to the node you are looking for.</p>
+      <a href="plugins.html#ansicht3d">More about the 3D view →</a>
     </div>
-    <img src="img/3d-ansicht.webp" alt="Die Mindmap „Weltreise 2027“ als 3D-Graph mit farbigen Kugeln" width="1184" height="761" loading="lazy">
+    <img src="img/3d-ansicht.webp" alt="The mind map “Weltreise 2027” as a 3D graph with coloured spheres" width="1184" height="761" loading="lazy">
   </div>
 </section>
 
 <section>
   <div class="wrap">
     <div class="zentriert">
-      <span class="etikett">So einfach geht's</span>
-      <h2>In einer Minute startklar</h2>
+      <span class="etikett">As easy as that</span>
+      <h2>Ready in one minute</h2>
     </div>
     <div class="schritte abstand-28">
-      <div class="karte schritt"><h3>Namen eingeben</h3><p class="leise">Kein Konto, keine E-Mail. Der Name sortiert nur deine Projekte auf diesem Gerät.</p></div>
-      <div class="karte schritt"><h3>Projekt anlegen</h3><p class="leise">Mit ＋ eine neue Mindmap erstellen oder eine vorhandene importieren.</p></div>
-      <div class="karte schritt"><h3>Knoten setzen</h3><p class="leise">Mit dem runden ＋ Knoten hinzufügen, mit ⟷ verbinden. Gespeichert wird automatisch.</p></div>
+      <div class="karte schritt"><h3>Enter a name</h3><p class="leise">No account, no email. The name only sorts your projects on this device.</p></div>
+      <div class="karte schritt"><h3>Create a project</h3><p class="leise">Create a new mind map with ＋ or import an existing one.</p></div>
+      <div class="karte schritt"><h3>Add nodes</h3><p class="leise">Add nodes with the round ＋, connect them with ⟷. Saving is automatic.</p></div>
     </div>
   </div>
 </section>
 
 <section>
   <div class="wrap paar">
-    <img class="hoch" src="img/sicherheit.webp" alt="Das Sicherheits-Center von mind3D auf dem Handy" width="585" height="1266" loading="lazy">
+    <img class="hoch" src="img/sicherheit.webp" alt="The mind3D Security Center on a phone" width="585" height="1266" loading="lazy">
     <div>
-      <span class="etikett">Sicherheit</span>
-      <h2>Deine Gedanken bleiben deine</h2>
-      <p class="leise">mind3D funktioniert komplett ohne Internet. Wer mehr Schutz will, schaltet im Sicherheits-Center die Verschlüsselung ein: für alle Mindmaps oder nur für einen Tresor mit eigenem Passwort.</p>
+      <span class="etikett">Security</span>
+      <h2>Your thoughts stay yours</h2>
+      <p class="leise">mind3D works entirely without the internet. If you want more protection, switch on encryption in the Security Center: for all mind maps or just for a vault with its own password.</p>
       <ul class="haken">
-        <li>Keine Tracker, keine Werbung, kein Konto</li>
-        <li>Verschlüsselung mit AES-256, Schlüssel im Sicherheitschip des Handys</li>
-        <li>App-Sperre per Fingerabdruck, Schutz vor Screenshots</li>
+        <li>No trackers, no ads, no account</li>
+        <li>AES-256 encryption, key in the phone’s security chip</li>
+        <li>App lock with fingerprint, protection against screenshots</li>
       </ul>
-      <a href="sicherheit.html">Alles zur Sicherheit →</a>
+      <a href="sicherheit.html">All about security →</a>
     </div>
   </div>
 </section>
 
 <section class="eng">
   <div class="wrap zentriert">
-    <span class="etikett">Das Team</span>
-    <h2>Gemacht von zwei Leuten mit zu vielen Ideen</h2>
+    <span class="etikett">The team</span>
+    <h2>Made by two people with too many ideas</h2>
     <div class="raster team abstand-16">
-      <div class="karte knoten"><div class="kopfleiste"><span class="nummer">#001</span><h3>Brian_FNA</h3></div><div class="inhalt leise">Gründer</div></div>
-      <div class="karte knoten"><div class="kopfleiste"><span class="nummer">#002</span><h3>nugnu</h3></div><div class="inhalt leise">Co-Founder</div></div>
+      <div class="karte knoten"><div class="kopfleiste"><span class="nummer">#001</span><h3>Brian_FNA</h3></div><div class="inhalt leise">Founder</div></div>
+      <div class="karte knoten"><div class="kopfleiste"><span class="nummer">#002</span><h3>nugnu</h3></div><div class="inhalt leise">Co-founder</div></div>
     </div>
   </div>
 </section>
@@ -147,9 +150,9 @@
 <section class="eng">
   <div class="wrap zentriert">
     <div class="karte leuchtet aufruf">
-      <h2>Bereit für deine erste Ebene?</h2>
-      <p class="leise">100 % kostenlos, ohne Werbung und ohne Abo. Für Android 10 oder neuer und Windows 10/11.</p>
-      <a class="knopf" href="download.html">Zum Download</a>
+      <h2>Ready for your first level?</h2>
+      <p class="leise">100 % free, no ads and no subscription. For Android 10 or newer and Windows 10/11.</p>
+      <a class="knopf" href="download.html">Go to download</a>
     </div>
   </div>
 </section>
@@ -157,18 +160,19 @@
 <footer class="fuss">
   <div class="wrap">
     <a class="marke" href="index.html"><img src="img/logo.svg" alt="" width="28" height="28">mind3D</a>
-    <nav aria-label="Fußzeile">
-      <a href="funktionen.html">Funktionen</a>
+    <nav aria-label="Footer">
+      <a href="funktionen.html">Features</a>
       <a href="plugins.html">Plugins</a>
-      <a href="sicherheit.html">Sicherheit</a>
-      <a href="plugin-entwicklung.html">Plugins entwickeln</a>
+      <a href="sicherheit.html">Security</a>
+      <a href="plugin-entwicklung.html">Developing plugins</a>
       <a href="download.html">Download</a>
-      <a href="impressum.html">Impressum</a>
-      <a href="datenschutz.html">Datenschutz</a>
-      <a href="nutzungsbedingungen.html">Nutzungsbedingungen</a>
-      <a href="lizenzen.html">Lizenzen</a>
+      <a href="impressum.html">Legal notice</a>
+      <a href="datenschutz.html">Privacy</a>
+      <a href="nutzungsbedingungen.html">Terms of use</a>
+      <a href="lizenzen.html">Licences</a>
+      <a href="de/index.html" hreflang="de" lang="de">Deutsch</a>
     </nav>
-    <span class="rechts">© 2026 Brian_FNA &amp; nugnu · Version 1.1.1 · 100 % kostenlos</span>
+    <span class="rechts">© 2026 Brian_FNA &amp; nugnu · Version 1.1.1 · 100 % free</span>
   </div>
 </footer>
 </div>
